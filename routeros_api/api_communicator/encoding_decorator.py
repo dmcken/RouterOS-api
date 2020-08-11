@@ -17,6 +17,8 @@ class EncodingApiCommunicator(object):
 
     def transform_item(self, item):
         key, value = item
+        if type(value) == str:
+            value = value.encode()
         return (key.encode(), value)
 
     def decorate_promise(self, promise):
